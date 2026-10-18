@@ -1,0 +1,34 @@
+{
+  "name": "roblox-bridge",
+  "version": "1.0.0",
+  "description": "Local-first bridge that lets a CLI drive Roblox Studio over HTTP, with optional Cloudflare Tunnel exposure and token protection.",
+  "license": "MIT",
+  "private": true,
+  "type": "commonjs",
+  "engines": {
+    "node": ">=18.17.0"
+  },
+  "main": "bridge/server.js",
+  "bin": {
+    "rbb": "cli/cli.js"
+  },
+  "scripts": {
+    "start": "node bridge/server.js",
+    "test": "npm run test:bridge && npm run test:cli",
+    "test:bridge": "node --test tests/bridge.auth.test.js tests/bridge.api.test.js tests/bridge.config.test.js",
+    "test:cli": "node --test tests/cli.test.js",
+    "test:plugin": "node --test tests/plugin.build.test.js",
+    "test:luau": "node --test tests/luau.test.js",
+    "build:plugin": "node plugin/build.js",
+    "package": "node scripts/package.js"
+  },
+  "optionalDependencies": {},
+  "keywords": [
+    "roblox",
+    "studio",
+    "bridge",
+    "plugin",
+    "luau",
+    "cli"
+  ]
+}
